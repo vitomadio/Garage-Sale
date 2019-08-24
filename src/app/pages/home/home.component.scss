@@ -1,0 +1,252 @@
+@import "../../../styles.scss";
+
+.home-component {
+  overflow-y: auto !important;
+  app-auth{
+    z-index: 1050 !important;
+    position:static !important;
+  }
+  nav {
+    border-bottom: 2px solid $secondary;
+    .dropdown-menu {
+      border: none;
+      margin-top: 11px;
+      border-radius:0;
+    }
+    .dropdown-item {
+      width: auto;
+      border: none;
+    }
+    .dropdown-item:hover {
+      background-color: rgba(255, 255, 255, 0.2) !important;
+    }
+  }
+  
+  .landing-top {
+    position: relative;
+    background: #373d43;
+    height: 70vh;
+    z-index: 5;
+    .bubble {
+      position: absolute;
+      z-index: -1;
+      top: 0px;
+      right: 0px;
+      max-width: 55%;
+      max-height: 90%;
+    }
+    .header-panel {
+      h1,
+      h5 {
+        text-shadow: 0 3px 8px rgba(0, 0, 0, 0.9);
+      }
+  
+      h5 {
+        font-weight: 100 !important;
+      }
+      .start-selling-btn {
+        background: $primary;
+        border-radius: 8px !important;
+        padding: 1.5em 2em 1.5em 2em;
+        box-shadow: 0 5px 8px rgba(0, 0, 0, 0.6);
+        font-size: 18px;
+        &:hover {
+          background: $secondary;
+          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+        }
+      }
+    }
+  }
+  .section-2 {
+    position: relative;
+    z-index: 5;
+    background-image: 
+    url("http://localhost:8000/middle-bars.png") ,
+    linear-gradient(to top, $secondary, $primary);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    .first-container {
+      .panel-section-two {
+        max-width: 1200px;
+        background: $darkGray;
+        border-radius: 42px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+        z-index: 6;
+  
+        opacity: 0.98;
+        p {
+          font-size: 24px;
+        }
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 700px;
+        }
+        .circle-back {
+          z-index: 4;
+          position: relative;
+          .imac-image{
+            position: absolute;
+            width: 76%;
+            height: auto;
+            left: 50%;
+            margin-left: -38%;
+            top:50%;
+            margin-top:-38%
+          }
+          .circle-beats{
+            animation: beats .5s ease-in infinite alternate;
+          }
+          // Circle animation
+          @keyframes beats {
+              from{transform: scale(1)}
+              to{transform: scale(1.1)}
+          }
+          @-webkit-keyframes beats {
+            from{transform: scale(1)}
+            to{transform: scale(1.1)}
+          }
+          @-moz-keyframes beats {
+            from{transform: scale(1)}
+            to{transform: scale(1.1)}
+          }
+        }
+        .bullet-points {
+          position: relative;
+          width: 60px;
+          height: 60px;
+          border-radius: 30px !important;
+          h2 {
+            margin: auto;
+          }
+        }
+      }
+    }
+    .second-container {
+      .reviews {
+        height: 100%;
+        padding-bottom: 6em;
+        h5{ 
+          font-size: 24px;
+          color: theme-color("dark");
+        }
+        p{
+          font-size: 18px;
+          line-height: 16px;
+          font-weight: 200;
+        }
+      }
+    }
+    .middle-bars {
+      position: absolute;
+      height: 110%;
+      top:0;
+      margin-bottom: -10%;
+    }
+  }
+  
+  .section-three {
+    background: $secondary;
+    z-index: 5;
+    min-height: 430px;
+    position: relative;
+    p {
+      font-size: 18px;
+    }
+    .container {
+      height: 430px;
+      .footer-widget {
+        height: 100%;
+      }
+    }
+  
+    #wave {
+      z-index: -1;
+      width: 100%;
+      min-height: 400px;
+      height: 550px;
+      position: absolute;
+      display: block;
+      bottom: 0;
+      margin-top: -7%;
+      left: 0;
+      path {
+        fill: $darkGray;
+      }
+    }
+  }
+  
+  footer {
+    position: relative;
+    z-index: 7;
+    bottom: 0;
+    div {
+      z-index: 900;
+      background: black;
+      p {
+        font-size: 14px !important;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .toggle {
+    display: none !important;
+  }
+  a {
+    &:hover {
+      color: $secondary !important;
+    }
+    &.login {
+      border-right: 1px solid $primary;
+    }
+    &.button {
+      &:hover {
+        background: $secondary !important;
+        color: $darkGray !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .collapse {
+    display: none;
+  }
+  .panel-section-two{
+    p{
+      text-align: center !important;
+    }
+  }
+  .section-three {
+    height: 700px;
+    #wave {
+      min-height: 800px;
+      height: 800px !important;
+      margin-top: -23% !important;
+    }
+  }
+}
+
+@media (min-width:768px) and (max-width: 992px){
+  .container{
+    padding: 0 3em !important;
+  }
+  .section-three {
+    height: 400px;
+    #wave {
+      min-height: 500px;
+      height: 500px !important;
+    }
+  }
+}
+
+@media (max-height:600px){
+    section.landing-top{
+      min-height: 550px !important;
+    }
+}

@@ -1,0 +1,115 @@
+.avatar{
+    width: 40px;
+    height: 40px;
+}
+.product-image{
+    width: 90%;
+    height: auto;
+    max-width: 90%;
+}
+.modal-header{
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+    border-color: #222326;
+}
+.comments-wrapper{
+    position:absolute;
+    height: 80%;
+    width: 100%;
+    top:-80%;
+    left:0px;
+    background: rgba(0,0,0,.94);
+    transition: top .75s;
+    -webkit-transition: top .75s;
+    -moz-transition: top .75s;
+    .desc-wrapper{
+        height: 120px;
+        padding: 0 1em;
+        border: 1px solid #fff;
+        overflow: auto;
+        margin-bottom: .5em;
+    }
+    .list-wrapper{
+        max-height: 80%;
+        overflow-y: auto;
+        scrollbar-color: white transparent;
+    }
+    ::-webkit-scrollbar { 
+        background: transparent;
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: transparent;
+        border: 1px solid #fff;
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #fff;
+        border-radius: 10px 
+    }
+    .buyer-avatar{
+        width: 32px;
+        height: 32px;
+    }
+    .comment-input-wrapper{
+        .comments-input{
+            border-color: #fff;
+            color: #fff;
+            box-shadow: none;
+            border-radius: 30px 0 0 30px !important;
+            &:focus{
+                box-shadow: none;
+            }
+            &::placeholder, 
+            &:-ms-input-placeholder,
+            &::-ms-input-placehoder {
+                color: #aaa
+            }
+        }
+        .send-icon-wrapper {
+            cursor: pointer;
+            border-radius: 0 30px 30px 0 !important;
+            &:hover{
+                background:#89ff00 !important;
+            }
+        }
+    }
+    .icon-wrapper{
+        position: absolute;
+        height: 28px;
+        width:60px;
+        left: 50%;
+        margin-left:-30px;
+        bottom: -28px;
+        background: #00ffd2;
+        cursor: pointer;
+    }
+    .icon-wrapper-triangle{
+        position: absolute;
+        height: 0px;
+        width: 0px;
+        left: 50%;
+        margin-left:-30px;
+        bottom: -45px;
+        border-right-color:transparent;
+        border-left-color:transparent;
+        border-bottom-color:transparent;
+        border-top-color:#00ffd2;
+        border-width: 10px 30px;
+        border-style: solid;
+        cursor: pointer;
+    }
+}
+.is-open {
+    top: 0%;
+}
+small {
+    font-size: 11px;
+}
+
+.reply-text{
+    border-bottom: 1px solid #6c757d;
+    border-left: 1px solid #6c757d;
+    margin-top: -1em;
+    width: 85%;
+}

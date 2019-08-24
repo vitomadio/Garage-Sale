@@ -1,0 +1,84 @@
+<div bsModal #productModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark">
+        <div class="modal-header bg-gradient border-bottom-0">
+          <h4 id="dialog-child-name" class="modal-title pull-left">Sell a Product</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body bg-dark">
+          <div *ngIf="message" class="row">
+            <div class="col">
+              <p class="text-center text-danger">{{message}}</p>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-5">
+              <img *ngIf="!imageUrl" src="https://via.placeholder.com/300" alt="" class="image float-right">
+              <img *ngIf="imageUrl" [src]="imageUrl" alt="" class="image float-right">
+            </div>
+  
+            <div class="col-4 align-self-center">
+             
+              <div class="custom-file">
+                <button class="btn btn-primary change-picture text-dark">Select an Image
+                  <input id="customFile" class="custom-file-input" type="file" accept=".jpg,.png,.jpeg"
+                    (change)="onFileSelected($event)">
+                </button>
+              </div>
+            </div>
+          </div>
+          <form [formGroup]="productForm" (ngSubmit)="publishProduct()" class="row justify-content-center" id="productForm">
+            <div class="form-group col-10 mt-3">
+              
+              <input id="title" class="form-control p-0 text-white" type="text" formControlName="title"
+                placeholder="Title" 
+                [ngClass]="{ 'is-invalid': pr.title.dirty && pr.title.errors.required || 
+                pr.title.dirty && pr.title.errors.validText  }" />
+                <div *ngIf="pr.title.errors.required" class="invalid-feedback">
+                    *This filed is required
+                  </div>
+                  <div *ngIf="pr.title.errors.validText" class="invalid-feedback">
+                    *Following caracters are forbiden {{specialCaraters}}
+                  </div>
+            </div>
+            <div class="form-group col-10">
+              <textarea id="description" class="form-control p-0 text-white" type="text" formControlName="description"
+                placeholder="  Product description here..." 
+                [ngClass]="{ 'is-invalid': pr.description.dirty && pr.description.errors.required || 
+                pr.description.dirty && pr.description.errors.validText  }" rows="4">
+              </textarea>
+              <div *ngIf="pr.description.errors.required" class="invalid-feedback">
+                *This filed is required
+              </div>
+              <div *ngIf="pr.description.errors.validText" class="invalid-feedback">
+                *Following caracters are forbiden {{specialCaraters}}
+              </div>
+            </div>
+            <div class="form-group col-10 d-flex justify-content-end">
+              <div class="col-auto float-right">
+                <h3 class="text-right text-secondary">$</h3>
+              </div>
+              <div class="col-4 p-0">
+                <input id="price" class="form-control p-0 text-white" type="text" formControlName="price"
+              placeholder="Price i.e. 9.99" 
+              [ngClass]="{ 'is-invalid': pr.price.dirty && pr.price.errors.required || pr.price.dirty && pr.price.errors.validPrice }" />
+              <div *ngIf="pr.price.errors.required" class="invalid-feedback">
+                  *This filed is required
+                </div>
+                <div *ngIf="pr.price.errors.validPrice" class="invalid-feedback">
+                  *Price must contain only numbers and 2 decimals separated by a dot.
+                </div>
+            </div>
+            </div>
+  
+            
+          </form>
+        </div>
+        <div class="modal-footer bg-dark">
+            <button class="btn btn-primary" form="productForm">Publish</button>
+        </div>
+      </div>
+    </div>
+  </div>

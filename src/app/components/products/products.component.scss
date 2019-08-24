@@ -1,0 +1,33 @@
+.card-wrapper{
+  
+    .card{
+        height: 100%;
+        border-radius: 16px !important;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0,0,0,.4);
+        cursor: pointer;
+        transition: .1s transform ease-in; 
+        &:hover{
+            transform: scale(1.05);
+        }
+        .card-header {
+            border-radius: 16px 16px 0 0 !important;
+            img {
+                width: 100%;
+                border-radius: 16px 16px 0 0 !important;
+            }
+        }
+        .card-body{
+            border-radius:0 0 16px 16px !important;
+        }
+        .trash-btn {
+            position: absolute;
+            height: 40px;
+            width: 40px;
+            border-radius: 20px !important;
+            top: -15px;
+            right: -15px;
+        }
+    
+    }
+}

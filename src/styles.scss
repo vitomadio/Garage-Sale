@@ -1,0 +1,102 @@
+
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+/*Import from bootstrap*/
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+html, body {
+    height: 100vh;
+    font-family:'Open Sans', sans-serif;
+    overflow: auto;
+}
+h1, h2{
+    font-family: 'Karla', sans-serif !important;
+    font-weight: bold !important;
+}
+
+.container{
+    max-width: 1290px;
+}
+a { 
+    cursor: pointer !important;
+}
+
+button:active {
+    box-shadow: none !important;
+}
+// Override Modal styles
+.modal-content{
+    border: none !important;
+    background-color: transparent !important;
+    .modal-header {
+        border-radius: .5rem .5rem 0px 0px  !important;
+    }
+}
+$primary-dark: #00c19d;
+$primary: #00ffd2;
+$secondary: #7bffe7; 
+$darkGray: #222326;
+$danger: $danger;
+
+
+
+.text-primary-dark{
+    color: $primary-dark !important;
+}
+.text-pink
+{
+    color: $primary !important;
+}
+.text-green
+{
+    color: $secondary !important;
+}
+.bg-pink, .btn-primary {
+    background-color: $primary !important;
+}
+.bg-green {
+    background-color: $secondary !important;
+}
+.btn-primary { 
+    border-color: $primary !important;
+    color:$darkGray !important;
+    &:hover{
+        background: $secondary !important;
+        border-color: $secondary !important;
+    }
+}
+.btn-green{
+    background-color: $secondary !important;
+    color:$darkGray !important;
+    &:hover{
+        background: $secondary !important;
+    }
+}
+
+.btn-outline-primary{
+    border-color: $primary !important;
+    color: $primary !important;
+    background: transparent;
+    &:hover{
+        background: $secondary !important;
+        border-color: $secondary !important;
+        color: $darkGray !important;
+    }
+}
+.bg-gradient {
+    background: linear-gradient(-45deg, $secondary 0%,  $primary 40%,  $primary-dark 100% );
+}
+.bg-dark-light{
+    background: $darkGray !important;
+}
+
+.font-weight-light {
+    font-weight: 200 !important;
+}

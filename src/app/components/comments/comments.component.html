@@ -1,0 +1,34 @@
+<div bsModal #commentsModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+  aria-labelledby="dialog-child-name">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0">
+      <div class="modal-header bg-gradient">
+        <h4 id="dialog-child-name" class="modal-title pull-left">My Commented Products</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body bg-dark-light p-0">
+        <ul *ngIf="userComments && userComments.length >= 1; else noComments" class="list-group bg-dark-light py-3">
+          <li *ngFor="let comment of userComments"
+            (click)="openProductDetails(comment.product)"
+            class="list-item d-inline-flex px-3 py-1 align-items-center comment-list">
+            <img [src]="comment.product.image" class="mr-3">
+            <div>
+              <p class="text-pink font-weight-light mb-0">{{comment.product.title}}</p>
+              <p class="text-white font-weight-light mb-0">{{
+                comment.message
+              }}</p>
+            </div>
+            <div class="text-secondary ml-auto"><small>{{comment.timeStamp.replace('T',' ').slice(0,19)}}</small></div>
+          </li>
+        </ul>
+        <ng-template #noComments >
+          <h3 class="text-white p-3 text-center">
+            You have made no comments.
+          </h3>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

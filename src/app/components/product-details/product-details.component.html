@@ -1,0 +1,90 @@
+<div *ngIf="product">
+  <div bsModal #productDetails="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+    aria-labelledby="dialog-child-name">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header align-items-center bg-gradient">
+          <img [src]="product.user && product.user.profile.avatar" class="img-thumbnail rounded-circle avatar mr-2" alt="">
+          <p id="dialog-child-name" class="modal-title pull-left">{{product.user && product.user.userName}}</p>
+          <button type="button" class="close pull-right" aria-label="Close"
+            (click)="hideChildModal(); closeCommentsBoard()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body bg-dark overflow-hidden p-0">
+          <div class="text-center">
+            <img [src]="product.image || 'http://placehold.jp/400x400.png?text=Product%20Image'"
+              class="product-image mt-3">
+          </div>
+          <div class="p-4">
+            <h3 class="text-white">{{product.title}}</h3>
+            <div class="desc-wrapper">
+              <p class="font-weight-light text-white">{{product.description}}</p>
+            </div>
+            <h3 class="text-right text-white ">
+              ${{product.price && product.price.toFixed(2).toString().replace('.',',')}}
+            </h3>
+          </div>
+          <!-- Comments pannel starts here. -->
+          <div
+            *ngIf="product.user && product.user.email !== currentUser.email || product.user && product.user.email == currentUser.email && comments.length >= 1"
+            class="comments-wrapper" [ngClass]="{ 'is-open': commentsBoardOpen }">
+            <div *ngIf="product.user.email != currentUser.email; else myCommentsBlock"
+              class="d-flex comment-input-wrapper justify-content-center p-3 input-group">
+              <input type="text" #commentInput="ngModel" [placeholder]="'Ask something to '+ product.user.userName" [(ngModel)]="commentInp"
+                class="form-control bg-transparent flex-5 comments-input" (keyup)="onWriteComment($event, product._id)">
+              <div class="input-group-append bg-pink px-3 send-icon-wrapper"
+                (click)="saveNewComment(product._id); this.commentInput.value = '' ">
+                <fa-icon [icon]="faArrowRight" size="lg" class="text-dark align-self-center"></fa-icon>
+              </div>
+            </div>
+            <ng-template #myCommentsBlock>
+              <h3 class="text-white p-3 text-center">Product Comments</h3>
+            </ng-template>
+            <!-- Comments list -->
+            <div *ngIf="comments"
+              class="px-3 list-wrapper pt-3 {{product.user.email === currentUser.email ? 'mt-3' : 'mt-0'}}">
+              <ul class="list-group">
+                <li *ngFor="let comment of comments" class="list-item d-flex flex-column mb-2">
+                  <div class="d-flex">
+                    <img [src]="comment.buyer.profile.avatar" class="buyer-avatar rounded-circle ml-2 mr-2 flex-1">
+                    <p class="text-white font-weight-light mb-0 mr-3 flex-4">{{comment.message}}</p>
+                    <button *ngIf="product.user.email == currentUser.email" class="p-0 btn bg-tranparent" type="button" [tooltip]="'Reply to '+comment.buyer.userName"
+                      placement="bottom" (click)="openReplyInput(comment._id)">
+                      <fa-icon *ngIf="!comment.reply" [icon]="faReply" size="lg" class="text-secondary"></fa-icon>
+                    </button>
+                  </div>
+                  <small
+                    class="text-secondary font-weight-light ml-auto mr-3">{{comment.timeStamp.slice(0,19).replace('T', ' ')}}
+                  </small>
+                  <div *ngIf="!comment.reply && replyInputOpen == comment._id" class="d-flex p-3">
+                    <input type="text" #reply="ngModel" [(ngModel)]="replyMessage"
+                      [placeholder]="'Respond to '+ comment.buyer.userName"
+                      class="form-control bg-transparent comments-input text-white"
+                      (keyup)="onReplyComment($event, comment)">
+                  </div>
+                  <div *ngIf="comment.reply" >
+                    <p class="text-white font-weight-light mb-0 ml-auto pt-3 mr-3 reply-text pl-3">
+                      {{comment.reply.message}}
+                    </p>
+                    <small
+                      class="text-secondary font-weight-light ml-auto mr-3 mt-1 float-right">{{comment.reply.timeStamp.slice(0,19).replace('T', ' ')}}
+                    </small>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="icon-wrapper-triangle text-center"></div>
+            <div *ngIf="!commentsBoardOpen" class="icon-wrapper animate text-center" (click)="openCommentsBoard()">
+              <fa-icon [icon]="faComment" size="lg" class="text-dark"></fa-icon>
+            </div>
+            <div *ngIf="commentsBoardOpen" class="icon-wrapper text-center" (click)="closeCommentsBoard()">
+              <fa-icon [icon]="faTimes" size="lg" class="text-dark"></fa-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+.dashboard-component {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden !important;
+  nav {
+    z-index: 100;
+    border-width: 0 0 2px 0;
+    border-color: #00ffd2;
+    border-style: solid;
+    .search-input {
+      border-radius: 30px !important;
+      box-shadow: none;
+      background: #fff;
+      font-weight: 300;
+    }
+    .dropdown-menu {
+      border: none;
+      margin-top: 10px;
+      border-radius: 0;
+      li {
+        &:hover {
+          background: rgba(255, 255, 255, 0.3);
+        }
+        .dropdown-item {
+          width: auto;
+          &:hover {
+            background: transparent;
+          }
+        }
+      }
+    }
+  }
+  .dashboard-wrapper {
+    height: 100vh;
+    #map-area {
+      overflow-y: auto;
+      app-map{
+        height: 80%;
+      }
+      .form-control {
+        width: 80%;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      textarea {
+        resize: none;
+      }
+      button {
+        position: relative;
+      }
+      input.custom-file-input {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+      }
+      img {
+        max-width: 80px;
+        max-height: 80px;
+        min-width: 80px;
+        min-height: 80px;
+      }
+    }
+    #product-area {
+      height: 100%;
+      overflow: auto !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .greeting {
+      display: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .greeting-mobile {
+      display: none;
+    }
+  }
+}

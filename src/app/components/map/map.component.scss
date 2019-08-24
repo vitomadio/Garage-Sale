@@ -1,0 +1,27 @@
+agm-map{
+    height:100%;
+    width: 100%;
+    div.agm-info-window-content{
+        border-radius: 8px !important;
+    }
+    div.gm-style-iw.gm-style-iw-c{
+        border-radius: 8px !important;
+        background: #ccc !important;
+    }
+    .gm-style-iw-d{
+        max-width: 90px !important;
+    }
+    strong{
+        font-size: 10px;
+    }
+}
+#search-form{
+    position: absolute;
+    top: 10px;
+    width: 90% !important;
+    left: 5%;
+    z-index: 1000;
+    input{
+        width: 90%;
+    }
+}

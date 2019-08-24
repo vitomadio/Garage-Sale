@@ -1,0 +1,8 @@
+.git
+node_modules
+
+#.gitignore file
+.gitignore
+
+#dist folder
+dist

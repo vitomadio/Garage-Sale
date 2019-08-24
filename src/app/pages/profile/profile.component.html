@@ -1,0 +1,68 @@
+<div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-dark-light">
+        <h4 id="dialog-child-name" class="modal-title pull-left text-pink">Edit Profile</h4>
+        <button type="button" class="close pull-right text-pink" aria-label="Close" (click)="hideChildModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body bg-dark">
+        <div class="row">
+          <div class="col-6 col-md-5">
+            <img *ngIf="!imageUrl" [src]="currentUser.avatar || currentUser.profile.avatar" alt="" class="img-thumbnail avatar float-right">
+            <img *ngIf="imageUrl" [src]="imageUrl" alt="" class="img-thumbnail avatar float-right">
+          </div>
+
+          <div class="col-5 align-self-center">
+            <!-- <form [formGroup]="imageForm" (ngSubmit)="changeAvatar($event)" enctype="multipart/form-data"
+              formControlName="avatar"> -->
+            <div class="custom-file">
+              <button class="btn btn-primary change-picture">Change Picture
+                <input id="customFile" class="custom-file-input" type="file" accept=".jpg,.png,.jpeg"
+                  (change)="onFileSelected($event)">
+              </button>
+            </div>
+            <!-- </form> -->
+          </div>
+        </div>
+        <form [formGroup]="profileForm" (ngSubmit)="saveChanges()" class="row justify-content-center">
+          <div class="form-group col-11 mt-3">
+            <label for="firstName">First Name</label>
+            <input id="firstName" class="form-control p-0 text-white" type="text" formControlName="firstName"
+              [placeholder]="currentUser.profile.firstName" [ngClass]="{ 'is-invalid': p.firstName.errors.validText }" />
+            <div *ngIf="p.firstName.errors && p.firstName.errors.validText" class="invalid-feedback">
+              Following caracters are forbiden {{specialCaraters}}
+            </div>
+          </div>
+          <div class="form-group col-11">
+            <label for="lastName">Last Name</label>
+            <input id="lastName" class="form-control p-0 text-white" type="text" formControlName="lastName"
+              [placeholder]="currentUser.profile.lastName" [ngClass]="{ 'is-invalid': p.lastName.errors.validText }" />
+            <div *ngIf="p.lastName.errors && p.lastName.errors.validText" class="invalid-feedback">
+              Following caracters are forbiden {{specialCaraters}}
+            </div>
+          </div>
+          <div class="form-group col-11">
+            <label for="userName">Username</label>
+            <input id="userName" class="form-control p-0 text-white" type="text" formControlName="userName"
+              [placeholder]="currentUser.userName" [ngClass]="{ 'is-invalid': p.userName.errors.validText }" />
+            <div *ngIf="p.userName.errors && p.userName.errors.validText" class="invalid-feedback">
+              Following caracters are forbiden {{specialCaraters}}
+            </div>
+          </div>
+          <div class="form-group col-11">
+            <label for="email">Email</label>
+            <input id="email" class="form-control p-0 text-white" formControlName="email" [placeholder]="currentUser.email"
+              [ngClass]="{ 'is-invalid': p.email.errors }" />
+            <div *ngIf="p.email.errors && p.email.errors.validEmail" class="invalid-feedback">
+              Email must be a valid email address
+            </div>
+          </div>
+
+          <button class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

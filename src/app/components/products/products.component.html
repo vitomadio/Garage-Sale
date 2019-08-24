@@ -1,0 +1,29 @@
+<div *ngIf="products" class="row px-3">
+  <div *ngFor="let product of products | search: query | sort: checked"
+    class="col-12 col-md-6 col-lg-4 col-xl-3 card-wrapper mb-4">
+    <div class="card">
+      <div *ngIf="product.user.email == currentUser.email" class="btn btn-primary trash-btn text-center px-0"
+        (click)="deleteProduct(product)">
+        <fa-icon [icon]="faTrashAlt" size="lg" class="text-secondary"></fa-icon>
+      </div>
+      <div class="card-header p-0" (click)="getProductDetails(product)">
+        <img [src]="product.image" class="card-img-top">
+      </div>
+      <div class="card-body bg-gradient row no-gutters" (click)="getProductDetails(product)">
+        <div class="col-12">
+          <h5 class="card-title text-dark">{{product.title.slice(0,25)}}</h5>
+        </div>
+        <div class="col-12">
+          <p class="card-text text-dark">{{
+       product.description.length > 25 ? product.description.slice(0,25) + '...' :
+       product.description
+       }}
+          </p>
+        </div>
+        <div class="col-12 align-self-end">
+          <h4 class="text-right text-dark">${{product.price.toFixed(2).toString().replace('.',',')}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

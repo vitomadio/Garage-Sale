@@ -1,0 +1,33 @@
+<agm-map #gm [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapClick)="onChoseLocation($event)"
+class="col-12">
+  <!-- Indicator Marker -->
+  <agm-marker [latitude]="latitude" [longitude]="longitude" [zIndex]="hover"
+  (mouseOver)="hover = 2000" 
+  (mouseOut)="hover = -1"
+  ></agm-marker>
+  <agm-marker *ngFor="let product of products | search: query" [latitude]="product.latitude" [longitude]="product.longitude"
+    (mouseOver)="onMouseOverMarker(product._id)" (mouseOut)="onMouseOutMarker()" 
+    (markerClick)="openProductDetails(product)"
+    [zIndex]="infoWindowPop == product._id ? product.latitude + 2000 : product.latitude">
+    <agm-info-window #infoWindow [isOpen]="true" [maxWidth]="100" [zIndex]="infoWindowPop == product._id ? product.latitude + 2000 : product.latitude">
+        <img [src]="product.image" style="width:100%;">
+        <p>
+          <strong>{{product.title.slice(0,20)}}</strong>
+        </p>
+        <p class="text-right mb-0">${{product.price.toFixed(2).toString().replace('.',',')}}</p>
+    </agm-info-window>
+
+  </agm-marker>
+
+  <!-- <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
+      [radius]="5000"
+      [fillColor]="'red'"
+      [circleDraggable]="true"
+      [editable]="true">
+  </agm-circle> -->
+</agm-map>
+<!-- <form [formGroup]="searchForm" (ngSubmit)="getLocation()" id="search-form">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search Address" formControlName="address">
+      </div>
+    </form> -->

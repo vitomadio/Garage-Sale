@@ -1,0 +1,16 @@
+img {
+  max-width: 40px;
+  max-height: 40px;
+}
+.modal-header {
+  border: none !important;
+}
+.modal-body {
+  border-radius: 0px 0px .5rem .5rem  !important;
+}
+.comment-list {
+  &:hover {
+    background: rgba(255,255,255,.2);
+    cursor: pointer;
+  }
+}
