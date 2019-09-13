@@ -47,7 +47,7 @@
               <ul class="list-group">
                 <li *ngFor="let comment of comments" class="list-item d-flex flex-column mb-2">
                   <div class="d-flex">
-                    <img [src]="comment.buyer.profile.avatar" class="buyer-avatar rounded-circle ml-2 mr-2 flex-1">
+                    <img [src]="comment.buyer.profile.avatar.slice(21)" class="buyer-avatar rounded-circle ml-2 mr-2 flex-1">
                     <p class="text-white font-weight-light mb-0 mr-3 flex-4">{{comment.message}}</p>
                     <button *ngIf="product.user.email == currentUser.email" class="p-0 btn bg-tranparent" type="button" [tooltip]="'Reply to '+comment.buyer.userName"
                       placement="bottom" (click)="openReplyInput(comment._id)">
