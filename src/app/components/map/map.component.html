@@ -10,7 +10,7 @@ class="col-12">
     (markerClick)="openProductDetails(product)"
     [zIndex]="infoWindowPop == product._id ? product.latitude + 2000 : product.latitude">
     <agm-info-window #infoWindow [isOpen]="true" [maxWidth]="100" [zIndex]="infoWindowPop == product._id ? product.latitude + 2000 : product.latitude">
-        <img [src]="product.image" style="width:100%;">
+        <img [src]="url+product.image.slice(21)" style="width:100%;">
         <p>
           <strong>{{product.title.slice(0,20)}}</strong>
         </p>

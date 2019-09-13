@@ -12,7 +12,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AgmCoreModule } from '@agm/core';
-import { environment } from '../environments/environment.prod';
 //Components
 import { AuthComponent } from './pages/auth/auth.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -25,6 +24,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { SearchPipe } from './pipes/search.pipe';
 import { CommentsComponent } from './components/comments/comments.component';
 import { SortPipe } from './pipes/sort/sort.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { SortPipe } from './pipes/sort/sort.pipe';
     BsDropdownModule.forRoot(),
     ModalModule.forRoot(),
     ButtonsModule.forRoot(),
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

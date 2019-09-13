@@ -8,6 +8,10 @@
   }
   nav {
     border-bottom: 2px solid $secondary;
+    .logo{
+      height: 46px;
+      width: auto;
+    }
     .dropdown-menu {
       border: none;
       margin-top: 11px;
@@ -21,7 +25,6 @@
       background-color: rgba(255, 255, 255, 0.2) !important;
     }
   }
-  
   .landing-top {
     position: relative;
     background: #373d43;

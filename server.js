@@ -6,6 +6,7 @@ const redis = require('redis');
 const cors = require('cors');
 const db = require('./db-config.js');
 const path = require('path');
+const config = require('./config-env');
 
 const auth = require('./routes/auth');
 const profile = require('./routes/profile');
@@ -13,7 +14,7 @@ const product = require('./routes/product');
 const comments = require('./routes/comment')
 
 // CONFIG REDIS
-const client = redis.createClient('redis://redis:6379');
+const client = redis.createClient(config.redis_config);
 client.on('connect', () => {
     console.log('Redis client connected');
 });

@@ -7,7 +7,7 @@
         <fa-icon [icon]="faTrashAlt" size="lg" class="text-secondary"></fa-icon>
       </div>
       <div class="card-header p-0" (click)="getProductDetails(product)">
-        <img [src]="product.image" class="card-img-top">
+        <img [src]="url+product.image.slice(21)" class="card-img-top">
       </div>
       <div class="card-body bg-gradient row no-gutters" (click)="getProductDetails(product)">
         <div class="col-12">

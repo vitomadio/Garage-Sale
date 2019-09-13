@@ -4,7 +4,7 @@ import { ProductService } from '../../services/product-service/product.service';
 import { Router } from '@angular/router'
 import { faBars, faStore, faDollyFlatbed, faComment, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { Product } from '../../../models/product-model';
-import { Location } from '../../../models/location-model';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   public faSignOutAlt = faSignOutAlt;
   public currentUser: any;
   public products: Product[];
+  public url: string = environment.url;
 
   constructor(
     private authService: AuthService,

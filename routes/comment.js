@@ -2,14 +2,14 @@ const jwt = require('jsonwebtoken');
 const crypto = require('../config-file').crypto;
 const redis = require('redis');
 
-
+const config = require('../config-env');
 const express = require('express');
 const Comment = require('../models/comment');
 const User = require('../models/user');
 const Product = require('../models/product');
 
 // CONFIG REDIS
-const client = redis.createClient('redis://redis:6379');
+const client = redis.createClient(config.redis_config);
 
 const router = express.Router();
 //Config isAuth middleware.

@@ -4,9 +4,9 @@ const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const fs = require('fs');
 const crypto = require('../config-file').crypto;
-const config_env = require('../config-env');
+const config = require('../config-env');
 
-const client = redis.createClient('redis://redis:6379'); //CONFIG REDIS.
+const client = redis.createClient(config.redis_config); //CONFIG REDIS.
 
 const router = express.Router();
 
@@ -21,7 +21,7 @@ router.post('/edit', isAuth, upload, (req, res) => {
   if (req.file) {
     const file = req.file;
     const prevUrl = req.body.prevUrl.slice(21);
-    const avatar = `${config_env.baseUrl}/uploads/${file.filename}`;
+    const avatar = `${config.baseUrl}/uploads/${file.filename}`;
     Profile.findOneAndUpdate({ user: req.decoded.userId }, {
       firstName: req.body.firstName,
       lastName: req.body.lastName,

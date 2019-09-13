@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header align-items-center bg-gradient">
-          <img [src]="product.user && product.user.profile.avatar" class="img-thumbnail rounded-circle avatar mr-2" alt="">
+          <img [src]="product.user && product.user.profile.avatar.slice(21)" class="img-thumbnail rounded-circle avatar mr-2" alt="">
           <p id="dialog-child-name" class="modal-title pull-left">{{product.user && product.user.userName}}</p>
           <button type="button" class="close pull-right" aria-label="Close"
             (click)="hideChildModal(); closeCommentsBoard()">
@@ -13,7 +13,7 @@
         </div>
         <div class="modal-body bg-dark overflow-hidden p-0">
           <div class="text-center">
-            <img [src]="product.image || 'http://placehold.jp/400x400.png?text=Product%20Image'"
+            <img [src]="product.image && url+product.image.slice(21) || 'http://placehold.jp/400x400.png?text=Product%20Image'"
               class="product-image mt-3">
           </div>
           <div class="p-4">

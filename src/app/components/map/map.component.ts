@@ -2,8 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GeocodeService } from '../../services/geocode-service/geocode.service';
 import { ProductService } from '../../services/product-service/product.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SanitizeText } from '../../validators/form.validators';
 import { Product } from 'src/models/product-model';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-map',
@@ -22,6 +22,7 @@ export class MapComponent implements OnInit {
   public infoWindowPop: string = null;
   public hover: number;
   public query: string;
+  public url: string = environment.url;
 
   // private address: string;
   // private searchForm: FormGroup;

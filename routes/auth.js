@@ -11,7 +11,7 @@ const Profile = require('../models/profile');
 
 // CONFIG REDIS
 // We used Redis to blacklist logged out tokens, in order to avoid hacking with stealed sessions tokens.
-const client = redis.createClient('redis://redis:6379');
+const client = redis.createClient(config.redis_config);
 
 
 //NODEMAILER CONFIG.

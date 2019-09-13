@@ -5,6 +5,7 @@ import { ProductService } from '../../services/product-service/product.service';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
 import { faTimes, faArrowRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
+import { environment } from '../../../environments/environment';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class ProductDetailsComponent implements OnInit {
   public buyerEmail: string = null;
   public replyMessage: string = '';
   public commentInp: string = '';
+  public url: string = environment.url;
 
   @ViewChild('productDetails', { static: false }) productDetails: ModalDirective;
  

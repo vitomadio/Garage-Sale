@@ -3,7 +3,7 @@ const multer = require('multer');
 const jwt = require('jsonwebtoken');
 const crypto = require('../config-file').crypto;
 const redis = require('redis');
-const config_env = require('../config-env');
+const config = require('../config-env');
 
 const User = require('../models/user');
 const Product = require('../models/product');
@@ -13,7 +13,7 @@ const Comment = require('../models/comment');
 const upload = multer({ dest: 'public/uploads/' }).single('file');
 
 // CONFIG REDIS
-const client = redis.createClient('redis://redis:6379');
+const client = redis.createClient(config.redis_config);
 
 
 const router = express.Router();
@@ -68,7 +68,7 @@ router.get('/my-products', (req, res) => {
 router.post('/save', upload, (req, res) => {
   if (req.file) {
     const file = req.file;
-    const image = `${config_env.baseUrl}/uploads/${file.filename}`;
+    const image = `${config.baseUrl}/uploads/${file.filename}`;
     const newProduct = new Product({
       title: req.body.title,
       description: req.body.description,

@@ -55,4 +55,4 @@ Thumbs.db
 #Environments
 /src/environments
 .env
-
+config-file.js

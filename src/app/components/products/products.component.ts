@@ -5,6 +5,7 @@ import { Product } from '../../../models/product-model';
 import { Location } from '../../../models/location-model';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import * as socketIo from 'socket.io-client';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-products',
@@ -18,6 +19,7 @@ export class ProductsComponent implements OnInit {
   public faTrashAlt = faTrashAlt;
   public currentUser: any;
   public products: Product[];
+  public url: string = environment.url;
 
   @Output() getProductLocation:EventEmitter<Product> = new EventEmitter<Product>();
 

@@ -13,7 +13,7 @@
           <li *ngFor="let comment of userComments"
             (click)="openProductDetails(comment.product)"
             class="list-item d-inline-flex px-3 py-1 align-items-center comment-list">
-            <img [src]="comment.product.image" class="mr-3">
+            <img [src]="comment.product.image.slice(21)" class="mr-3">
             <div>
               <p class="text-pink font-weight-light mb-0">{{comment.product.title}}</p>
               <p class="text-white font-weight-light mb-0">{{

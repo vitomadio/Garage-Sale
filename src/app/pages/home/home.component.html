@@ -1,21 +1,24 @@
 <div class="home-component">
   <nav class="navbar navbar-expand-md navbar-dark bg-dark-light  shadow-sm">
     <div class="container">
-      <a class="navbar-brand text-pink font-weight-light">Garage-Sale</a>
+      <a class="navbar-brand text-pink font-weight-light">
+        <img src="assets/icons/icon-128x128.png" class="logo" alt="Logo">
+        Garage-Sale
+      </a>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link text-pink font-weight-light">About Us</a>
+            <a class="nav-link text-green font-weight-light">About Us</a>
           </li>
           <li class="nav-item mr-3">
-            <a class="nav-link text-pink font-weight-light">Policy</a>
+            <a class="nav-link text-green font-weight-light">Policy</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-pink font-weight-light login button"
+            <a class="nav-link text-green font-weight-light login button"
               (click)="childModal.showChildModal('login')">Login </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-pink font-weight-light button "
+            <a class="nav-link text-green font-weight-light button "
               (click)="childModal.showChildModal('signup')">Sign
               Up</a>
           </li>
@@ -45,18 +48,18 @@
   </nav>
   <!-- Content -->
   <section class="p-0 landing-top pb-5">
-    <img src="http://localhost:8000/bubble.png" class="bubble d-none d-md-block"
+    <img [src]="url+'/bubble.png'" class="bubble d-none d-md-block"
       alt="">
     <!--Image on the upper right-->
 
     <div class="container h-100 px-3 px-md-5">
       <div class="row align-items-center h-75">
         <div class=" col-12 col-md-6 header-panel p-3">
-          <h1 class="text-pink text-left">
-            Welcome to the new way to sell used stuff.
+          <h1 class="text-green text-left">
+            Welcome to the new way to sell.
           </h1>
-          <h5 class="text-pink text-left">Garage Sale is the one and only tool
-            you need to sell your used products.</h5>
+          <h5 class="text-green text-left">Garage Sale is the one and only tool
+            you need to sell your products fast and easy.</h5>
           <div class="text-center p-3">
             <button class="btn start-selling-btn mt-5"
               (click)="childModal.showChildModal('signup')">Start Selling Right
@@ -132,7 +135,7 @@
                 </g>
               </svg>
               <!-- <div class="mr-auto ml-auto text-center"> -->
-                <img src="http://localhost:8000/imac-group.png" class="imac-image" (mouseover)="makeCircleBeat()" 
+                <img [src]="url+'/imac-group.png'" class="imac-image" (mouseover)="makeCircleBeat()" 
                 (mouseout)="stopCircleBeating()">
               <!-- </div> -->
             </div>
@@ -150,37 +153,34 @@
             Some of our customers reviews.</h2>
         </div>
         <div class=" col-12 col-md-4 text-center mb-3">
-          <img src="http://localhost:8000/avatar1.png"
+          <img [src]="url+'/avatar1.png'"
             class="rounded-circle mb-4 shadow">
           <h5 class="font-weight-bolder">Sarah Ferguson</h5>
           <p>This app is amazing,</p>
           <p>I recommend it 100%.</p>
-          <img src="http://localhost:8000/stars.svg">
+          <img [src]="url+'/stars.svg'">
         </div>
         <div class=" col-12 col-md-4 text-center mb-3">
-          <img src="http://localhost:8000/avatar2.png"
+          <img [src]="url+'/avatar2.png'"
             class="rounded-circle mb-4 shadow">
           <h5 class="font-weight-bolder">Martin Muller</h5>
           <p>Very easy to use, sell</p>
           <p>A couple of things just</p>
           <p>In few days.</p>
-          <img src="http://localhost:8000/stars.svg">
+          <img [src]="url+'/stars.svg'">
         </div>
         <div class=" col-12 col-md-4 text-center mb-5">
-          <img src="http://localhost:8000/avatar3.png"
+          <img [src]="url+'/avatar3.png'"
             class="rounded-circle mb-4 shadow">
           <h5 class="font-weight-bolder">Elisa Riccardi</h5>
           <p>Garage-Sale,</p>
           <p>Love at first sight.</p>
-          <img src="http://localhost:8000/stars.svg">
+          <img [src]="url+'/stars.svg'">
         </div>
 
       </div>
     </div>
-    <!-- Middle bars -->
-    <!-- <div class="middle-bars p-0">
-<img src="http://localhost:8000/middle-bars.png" style="height:100%;">
-</div> -->
+  
   </section>
 
   <!-- Section three -->
@@ -189,21 +189,21 @@
       <div class="row justify-content-around align-items-center footer-widget">
         <div class="col-1 d-none d-md-block"></div>
         <div class="col-12 col-md-3 text-center text-md-left mb-3">
-          <p class="text-secondary font-weight-bold">Project</p>
+          <p class="text-light">Project</p>
           <p class="text-secondary font-weight-light">Latest Release</p>
           <p class="text-secondary font-weight-light">Updates</p>
           <p class="text-secondary font-weight-light">API</p>
           <p class="text-secondary font-weight-light">Github Project</p>
         </div>
         <div class="col-12 col-md-3 text-center text-md-left mb-3">
-          <p class="text-secondary font-weight-bold">Support</p>
+          <p class="text-light">Support</p>
           <p class="text-secondary font-weight-light">Latest Release</p>
           <p class="text-secondary font-weight-light">Updates</p>
           <p class="text-secondary font-weight-light">API</p>
           <p class="text-secondary font-weight-light">Github Project</p>
         </div>
         <div class="col-12 col-md-3 text-center text-md-left">
-          <p class="text-secondary font-weight-bold">Company</p>
+          <p class="text-light">Company</p>
           <p class="text-secondary font-weight-light">Latest Release</p>
           <p class="text-secondary font-weight-light">Updates</p>
           <p class="text-secondary font-weight-light">API</p>
@@ -212,8 +212,8 @@
       </div>
     </div>
     <!-- Footer widgets Wave -->
-    <svg xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 500"
+    <svg 
+       viewBox="0 0 1920 500"
       preserveAspectRatio="xMidYMin slice" id="wave">
       <defs>
         <filter id="Union_2" x="0" y="0" width="1920" height="567.247"
