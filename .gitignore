@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
+# /dist
 /tmp
 /out-tsc
 # Only exists if Bazel was run
@@ -46,11 +46,11 @@ testem.log
 Thumbs.db
 
 #Images 
-/public/uploads
-/public/avatar1.png
-/public/avatar2.png
-/public/avatar3.png
-/public/default_avatar.png
+# /public/uploads
+# /public/avatar1.png
+# /public/avatar2.png
+# /public/avatar3.png
+# /public/default_avatar.png
 
 #Environments
 .env
