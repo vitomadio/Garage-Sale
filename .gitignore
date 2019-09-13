@@ -53,6 +53,4 @@ Thumbs.db
 /public/default_avatar.png
 
 #Environments
-/src/environments
 .env
-config-file.js
